@@ -1,0 +1,342 @@
+:root {
+  --creme: #faf6f0;
+  --bege: #efe6d8;
+  --verde: #4a6b53;
+  --verde-escuro: #36503d;
+  --terracota: #c05621;
+  --marrom: #3e2723;
+  --branco: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Georgia', serif;
+  background-color: var(--creme);
+  color: var(--marrom);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Cabeçalho */
+.topo {
+  background-color: var(--verde);
+  color: var(--branco);
+  padding: 25px 0;
+  border-bottom: 4px solid var(--terracota);
+}
+
+.topo-conteudo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.topo p {
+  font-family: Arial, sans-serif;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* Botões */
+.btn-primario {
+  background-color: var(--terracota);
+  color: var(--branco);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-primario:hover {
+  background-color: #9c4215;
+}
+
+/* Filtros */
+.barra-filtros {
+  display: flex;
+  gap: 15px;
+  margin: 25px 0;
+  flex-wrap: wrap;
+}
+
+.barra-filtros input,
+.barra-filtros select {
+  padding: 12px;
+  border: 1px solid #d4c5b3;
+  border-radius: 6px;
+  background-color: var(--branco);
+  font-size: 1rem;
+  color: var(--marrom);
+}
+
+.barra-filtros input {
+  flex: 2;
+  min-width: 220px;
+}
+
+.barra-filtros select {
+  flex: 1;
+  min-width: 180px;
+}
+
+/* Grade e Cartões */
+.grade-receitas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  padding-bottom: 40px;
+}
+
+.cartao {
+  background-color: var(--branco);
+  border: 1px solid var(--bege);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(62, 39, 35, 0.08);
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.cartao:hover {
+  transform: translateY(-4px);
+}
+
+.cartao img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  background-color: var(--bege);
+}
+
+.cartao-corpo {
+  padding: 18px;
+}
+
+.tag-categoria {
+  display: inline-block;
+  background-color: var(--bege);
+  color: var(--verde-escuro);
+  font-family: Arial, sans-serif;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.cartao h3 {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+
+.cartao-meta {
+  font-family: Arial, sans-serif;
+  font-size: 0.85rem;
+  color: #6d4c41;
+  margin-top: 10px;
+}
+
+/* Utilitário para esconder/mostrar telas */
+.oculto {
+  display: none !important;
+}
+
+/* Página Individual da Receita */
+.detalhes-receita {
+  background-color: var(--branco);
+  border: 1px solid var(--bege);
+  border-radius: 12px;
+  padding: 30px;
+  margin: 25px 0 50px;
+  box-shadow: 0 4px 12px rgba(62, 39, 35, 0.08);
+}
+
+.detalhes-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.acoes-receita {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-secundario {
+  background-color: var(--bege);
+  color: var(--marrom);
+  border: 1px solid #d4c5b3;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-secundario:hover {
+  background-color: #e2d4c0;
+}
+
+.btn-perigo {
+  background-color: #b91c1c;
+  color: var(--branco);
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.detalhes-capa {
+  width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 15px 0;
+}
+
+.detalhes-info {
+  display: flex;
+  gap: 20px;
+  font-family: Arial, sans-serif;
+  background-color: var(--creme);
+  padding: 12px 18px;
+  border-radius: 8px;
+  margin: 15px 0;
+  font-weight: bold;
+}
+
+/* Painel do Conversor e Porções */
+.painel-controles {
+  background-color: var(--bege);
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.controle-grupo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: Arial, sans-serif;
+}
+
+.btn-porcao {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--verde);
+  color: var(--branco);
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.painel-controles select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #cbbba7;
+  font-size: 0.95rem;
+}
+
+.lista-ingredientes {
+  list-style: none;
+  margin: 15px 0 25px;
+}
+
+.lista-ingredientes li {
+  padding: 10px 0;
+  border-bottom: 1px dashed #d4c5b3;
+  font-size: 1.05rem;
+}
+
+.modo-preparo {
+  white-space: pre-line;
+  background-color: var(--creme);
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid var(--verde);
+}
+
+/* Estilos do Formulário de Receita */
+.formulario-receita {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.campo-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.campo-grupo label {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: var(--marrom);
+}
+
+.formulario-receita input,
+.formulario-receita select,
+.formulario-receita textarea {
+  padding: 10px;
+  border: 1px solid #d4c5b3;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+.linha-dupla {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.linha-ingrediente-form {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr auto;
+  gap: 8px;
+  margin-bottom: 8px;
+  align-items: center;
+}
+
+.btn-remover-ing {
+  background-color: #e2d4c0;
+  color: var(--marrom);
+  border: none;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-remover-ing:hover {
+  background-color: #b91c1c;
+  color: white;
+}
