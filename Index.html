@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Livro de Receitas Digital</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Cabeçalho e Apresentação -->
+  <header class="topo">
+    <div class="container topo-conteudo">
+      <div>
+        <h1>Livro de Receitas Digital</h1>
+        <p>Seu caderno pessoal para organizar, adaptar e saborear receitas.</p>
+      </div>
+      <button id="btn-nova-receita" class="btn-primario">+ Nova Receita</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- TELA 1: Catálogo (Página Inicial) -->
+    <div id="tela-catalogo">
+      <section class="barra-filtros">
+        <input type="text" id="campo-busca" placeholder="Pesquisar receita pelo nome...">
+        
+        <select id="filtro-categoria">
+          <option value="Todas">Todas as Categorias</option>
+          <option value="Bolos e Tortas">Bolos e Tortas</option>
+          <option value="Café da Manhã">Café da Manhã</option>
+          <option value="Pratos Principais">Pratos Principais</option>
+          <option value="Sobremesas">Sobremesas</option>
+          <option value="Lanches">Lanches</option>
+        </select>
+      </section>
+
+      <section id="catalogo-receitas" class="grade-receitas"></section>
+    </div>
+
+    <!-- TELA 2: Página Individual da Receita -->
+    <section id="tela-detalhes" class="detalhes-receita oculto">
+      <div class="detalhes-topo">
+        <button id="btn-voltar" class="btn-secundario">← Voltar ao Catálogo</button>
+        <div class="acoes-receita">
+          <button id="btn-editar-atual" class="btn-secundario">Editar</button>
+          <button id="btn-excluir-atual" class="btn-perigo">Excluir</button>
+        </div>
+      </div>
+
+      <div id="conteudo-receita"></div>
+    </section>
+
+    <!-- TELA 3: Formulário de Cadastro e Edição -->
+    <section id="tela-formulario" class="detalhes-receita oculto">
+      <div class="detalhes-topo">
+        <h2 id="titulo-formulario">Adicionar Nova Receita</h2>
+        <button id="btn-cancelar-form" class="btn-secundario">Cancelar</button>
+      </div>
+
+      <form id="form-receita" class="formulario-receita">
+        <input type="hidden" id="receita-id-edicao">
+
+        <div class="campo-grupo">
+          <label for="input-titulo">Nome da Receita *</label>
+          <input type="text" id="input-titulo" placeholder="Ex: Bolo de Chocolate" required>
+        </div>
+
+        <div class="linha-dupla">
+          <div class="campo-grupo">
+            <label for="input-categoria">Categoria *</label>
+            <select id="input-categoria" required>
+              <option value="Bolos e Tortas">Bolos e Tortas</option>
+              <option value="Café da Manhã">Café da Manhã</option>
+              <option value="Pratos Principais">Pratos Principais</option>
+              <option value="Sobremesas">Sobremesas</option>
+              <option value="Lanches">Lanches</option>
+            </select>
+          </div>
+
+          <div class="campo-grupo">
+            <label for="input-tempo">Tempo de Preparo *</label>
+            <input type="text" id="input-tempo" placeholder="Ex: 35 min" required>
+          </div>
+
+          <div class="campo-grupo">
+            <label for="input-porcoes">Porções *</label>
+            <input type="number" id="input-porcoes" min="1" value="4" required>
+          </div>
+        </div>
+
+        <div class="campo-grupo">
+          <label for="input-imagem">Link da Fotografia (Opcional)</label>
+          <input type="url" id="input-imagem" placeholder="Cole a URL de uma imagem (https://...)">
+        </div>
+
+        <div class="campo-grupo">
+          <label for="input-descricao">Breve Descrição *</label>
+          <input type="text" id="input-descricao" placeholder="Uma frase curta descrevendo o prato" required>
+        </div>
+
+        <!-- Área dinâmica de Ingredientes -->
+        <div class="campo-grupo">
+          <label>Ingredientes (informe o peso base em gramas ou ml) *</label>
+          <div id="container-inputs-ingredientes"></div>
+          <button type="button" id="btn-add-ingrediente" class="btn-secundario" style="margin-top: 10px;">
+            + Adicionar Ingrediente
+          </button>
+        </div>
+
+        <div class="campo-grupo">
+          <label for="input-preparo">Modo de Preparo *</label>
+          <textarea id="input-preparo" rows="5" placeholder="Descreva o passo a passo da receita..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-primario" style="width: 100%; margin-top: 10px;">
+          Salvar Receita no Livro
+        </button>
+      </form>
+    </section>
+  </main>
+
+  <script src="action.js"></script>
+</body>
+</html>
